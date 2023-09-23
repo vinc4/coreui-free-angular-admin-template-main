@@ -1,0 +1,111 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header  color="success"  ngPreserveWhitespaces>
+      <strong>Edit Vehicle</strong>
+    </c-card-header>
+    <c-card-body>
+
+      <form [formGroup]="vehicleForm"
+            (ngSubmit)="onSubmit()"
+            [validated]="customStylesValidated"
+            cForm
+            class="row g-3 needs-validation"
+      >
+        <c-col md="4">
+          <label cLabel for="SelectVehicleMake"> Vehicle Make</label>
+          <input cFormControl id="SelectVehicleMake" required type="text"  formControlName="vehicleMake" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="SelectVehicleColor"> Vehicle Color</label>
+          <input cFormControl id="SelectVehicleColor" required type="text"  formControlName="vehicleColor" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="SelectVehicleModel"> Vehicle Model</label>
+          <input cFormControl id="SelectVehicleModel" required type="text"  formControlName="vehicleModel" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+
+
+        <c-col md="4">
+          <label cLabel for="VehicleVin">Vin Number</label>
+          <c-input-group class="has-validation">
+            <input aria-describedby="inputGroupPrepend"
+                   cFormControl
+                   id="VehicleVin"
+                   required
+                   type="VehicleVin"
+                   formControlName="vehicleVin"
+            />
+            <c-form-feedback [valid]="false">Please choose a VehicleVin.</c-form-feedback>
+          </c-input-group>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="VehicleYear">Vehicle Year</label>
+          <input cFormControl id="VehicleYear" type="text" required  formControlName="vehicleYear" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="VehicleType">Vehicle Type</label>
+          <select cSelect id="VehicleType" required  formControlName="vehicleType">
+            <option value="" disabled>Choose...</option>
+            <option value="Truck">Truck</option>
+            <option value="Suv">Suv</option>
+          </select>
+          <c-form-feedback [valid]="false">Please provide a valid State.</c-form-feedback>
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="LicenceExpiryDate">Licence Expiry Date</label>
+          <input cFormControl id="LicenceExpiryDate" type="date" required  formControlName="licenceExpiryDate" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+
+        <c-col md="4">
+          <label cLabel for="validationCustom09">License Number</label>
+          <input cFormControl id="validationCustom09" type="text" required  formControlName="licensenumber" />
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="InitialMileage">Initial Mileage(km)</label>
+          <input cFormControl id="InitialMileage" type="text" required  formControlName="initialMileage" />
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="InitialtankLiters">Vehicle Tank(liters)</label>
+          <input cFormControl id="InitialtankLiters" type="text" required  formControlName="initialtankLiters" />
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="VehicleEngineType">Vehicle Engine Type</label>
+          <select cSelect id="VehicleEngineType" required  formControlName="vehicleEngineType">
+            <option value="" disabled>Choose...</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+          </select>
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="VehicleDriver">Driver</label>
+          <select cSelect id="VehicleDriver" required formControlName="DriverId" (change)="selectDriver($event)">
+            <option value="" disabled>Choose...</option>
+            <option *ngFor="let result of Drivers" [value]="result.id">
+              {{ result.firstName }} {{ result.lastName }}
+            </option>
+          </select>
+        </c-col>
+
+
+        <c-col xs="12">
+          <button cButton class="me-1 text-light" color="success" type="submit">
+            Submit
+          </button>
+
+        </c-col>
+      </form>
+    </c-card-body>
+  </c-card>
+</c-col>
+

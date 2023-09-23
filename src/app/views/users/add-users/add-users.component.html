@@ -1,0 +1,75 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header  color="success"  ngPreserveWhitespaces>
+      <strong>Add User</strong> <small>(Managers)</small>
+    </c-card-header>
+    <c-card-body>
+
+      <p class="text-medium-emphasis small">
+        please complete the user registration form below. It's quick and easy, and you'll be up and running in no time.
+      </p>
+        <form [formGroup]="userForm"
+              (ngSubmit)="onSubmit()"
+              [validated]="customStylesValidated"
+              cForm
+              class="row g-3 needs-validation"
+        >
+          <c-col md="4">
+            <label cLabel for="validationCustom01">First name</label>
+            <input cFormControl id="validationCustom01" required type="text"  formControlName="firstname" ngModel/>
+            <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+          </c-col>
+          <c-col md="4">
+            <label cLabel for="validationCustom02">Last name</label>
+            <input cFormControl id="validationCustom02" required type="text"  formControlName="lastname" ngModel/>
+            <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+          </c-col>
+          <c-col md="4">
+            <label cLabel for="validationCustomUsername">Email</label>
+            <c-input-group class="has-validation">
+              <input aria-describedby="inputGroupPrepend"
+                     cFormControl
+                     id="validationCustomUsername"
+                     required
+                     type="text"
+                     formControlName="email"
+              />
+              <c-form-feedback [valid]="false">Please choose a email.</c-form-feedback>
+            </c-input-group>
+          </c-col>
+
+          <c-col md="4">
+            <label cLabel for="validationCustom04">Role</label>
+            <select cSelect id="validationCustom04" required  formControlName="role">
+              <option value="" disabled>Choose...</option>
+              <option value="Admin">Admin</option>
+              <option value="User">Driver</option>
+            </select>
+            <c-form-feedback [valid]="false">Please provide a valid State.</c-form-feedback>
+          </c-col>
+          <c-col md="4">
+            <label cLabel for="validationCustomUsername">Password</label>
+            <c-input-group class="has-validation">
+              <input aria-describedby="inputGroupPrepend"
+                     cFormControl
+                     id="userpassword"
+
+                     type="password"
+                     formControlName="password"
+              />
+              <c-form-feedback [valid]="false">Please choose a password.</c-form-feedback>
+            </c-input-group>
+          </c-col>
+
+          <c-col xs="12">
+            <button cButton class="me-1 text-light" color="success" type="submit">
+              Submit User
+            </button>
+            <button (click)="onReset1()" cButton color="secondary" type="reset">
+              Reset
+            </button>
+          </c-col>
+        </form>
+    </c-card-body>
+  </c-card>
+</c-col>

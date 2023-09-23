@@ -1,0 +1,124 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header  color="success"  ngPreserveWhitespaces>
+      <strong>Edit Driver</strong>
+    </c-card-header>
+    <c-card-body>
+
+      <p class="text-medium-emphasis small">
+        please complete the user registration form below. It's quick and easy, and you'll be up and running in no time.
+      </p>
+      <form [formGroup]="userForm"
+            (ngSubmit)="onSubmit()"
+            [validated]="customStylesValidated"
+            cForm
+            class="row g-3 needs-validation"
+      >
+        <c-col md="4">
+          <label cLabel for="validationCustom01">First name</label>
+          <input cFormControl id="validationCustom01" required type="text"  formControlName="firstname" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+<!--        <c-col md="4">-->
+<!--          <label cLabel for="validationCustom02">Middle Name</label>-->
+<!--          <input cFormControl id="validationCustom02" type="text"  formControlName="middlename" />-->
+<!--          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>-->
+<!--        </c-col>-->
+        <c-col md="4">
+          <label cLabel for="validationCustom03">Last name</label>
+          <input cFormControl id="validationCustom03" required type="text"  formControlName="lastname" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="validationCustom03">IDNumber</label>
+          <input cFormControl id="validationCustom033" required type="text"  formControlName="iDNumber" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="validationCustom05">Email</label>
+          <c-input-group class="has-validation">
+            <input aria-describedby="inputGroupPrepend"
+                   cFormControl
+                   id="validationCustomUsername"
+                   required
+                   type="text"
+                   formControlName="email"
+            />
+            <c-form-feedback [valid]="false">Please choose a email.</c-form-feedback>
+          </c-input-group>
+        </c-col>
+
+<!--        <c-col md="4">-->
+<!--          <label cLabel for="validationCustomUsername">Password</label>-->
+<!--          <c-input-group class="has-validation">-->
+<!--            <input aria-describedby="inputGroupPrepend"-->
+<!--                   cFormControl-->
+<!--                   id="userpassword"-->
+<!--                   required-->
+<!--                   type="password"-->
+<!--                   formControlName="password"-->
+<!--            />-->
+<!--            <c-form-feedback [valid]="false">Please choose a password.</c-form-feedback>-->
+<!--          </c-input-group>-->
+<!--        </c-col>-->
+
+        <c-col md="4">
+          <label cLabel for="validationCustom06">Phone</label>
+          <input cFormControl id="validationCustom06" type="text" required  formControlName="phone" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+<!--        <c-col md="4">-->
+<!--          <label cLabel for="validationCustom04">Role</label>-->
+<!--          <select cSelect id="validationCustom04" required  formControlName="role">-->
+<!--            <option value="" disabled>Choose...</option>-->
+<!--            <option value="Admin">Admin</option>-->
+<!--            <option value="User">Driver</option>-->
+<!--          </select>-->
+<!--          <c-form-feedback [valid]="false">Please provide a valid State.</c-form-feedback>-->
+<!--        </c-col>-->
+        <c-col md="4">
+          <label cLabel for="validationCustom04">Gender</label>
+          <select cSelect id="validationCustom04" required  formControlName="gender">
+            <option value="" disabled>Choose...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <c-form-feedback [valid]="false">Please provide a valid State.</c-form-feedback>
+        </c-col>
+
+        <c-col md="4">
+          <label cLabel for="validationCustom08">Contact Number</label>
+          <input cFormControl id="validationCustom08" type="text" required  formControlName="contractnumber" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="validationCustom09">License Number</label>
+          <input cFormControl id="validationCustom09" type="text" required  formControlName="licensenumber" />
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="validationCustom09">IssueDate</label>
+          <input cFormControl id="validationCustomd" type="date" required  formControlName="issueDate"  />
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="validationCustomdd">ExpirationDate</label>
+          <input cFormControl id="validationCustomdd" type="date" required formControlName="expirationDate"  />
+        </c-col>
+        <c-col md="4">
+          <label cLabel for="validationCustom04">Address</label>
+          <input cFormControl id="validationCustom04" type="text" required  formControlName="address" />
+          <c-form-feedback [valid]="true">Looks good!</c-form-feedback>
+        </c-col>
+
+        <c-col xs="12">
+          <button cButton class="me-1 text-light" color="success" type="submit">
+            Submit
+          </button>
+
+        </c-col>
+      </form>
+    </c-card-body>
+  </c-card>
+</c-col>
+

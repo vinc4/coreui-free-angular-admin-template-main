@@ -1,0 +1,50 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header>
+      Manage Users <button class="btn btn-success mr-2 float-end text-light" (click)="addUser()">Add User</button>
+    </c-card-header>
+    <c-card-body>
+      <div class="mb-3">
+        <!-- Add Buttons for Adding Drivers -->
+       <br>
+      </div>
+
+      <p class="text-medium-emphasis small">
+        <br>
+      </p>
+      <table stripedColumns cTable>
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Created</th>
+          <th scope="col">Role</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let result of data ;index as i">
+          <td>{{i + 1}}</td>
+          <td>{{result.userName}}</td>
+          <td>{{result.email}}</td>
+          <td>{{result.addedDate | date :'short' }}</td>
+          <td>{{result.userRole}}</td>
+          <td>
+            <c-dropdown>
+              <button cButton cDropdownToggle color="secondary">
+                Select function
+              </button>
+              <ul cDropdownMenu>
+                <li><a routerLink="/users/edit-users" (click)="setUser(result)" cDropdownItem>Edit</a></li>
+                <li><a routerLink="/users/users" (click)="deleteUser(result)" cDropdownItem>Delete</a></li>
+              </ul>
+            </c-dropdown>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+</c-col>
